@@ -14,6 +14,8 @@ class View{
         console.log(`node todo.js delete <task_id>`)
         console.log(`node todo.js complete <task_id>`)
         console.log(`node todo.js uncomplete <task_id>`)
+        console.log(`node todo.js list:created asc|desc [list berdasarkan waktu dibuat]`)
+        console.log(`node todo.js list:completed asc|desc [list berdasarkan waktu complete]`)
     }
 
     static list(data){
@@ -41,6 +43,14 @@ class View{
 
     static completeList(data){
         console.log(data);
+    }
+
+    static tag(data){
+        console.log(`Tagged task "${data.task}" with tags ${data.tag}`)
+    }
+
+    static findTag(data){
+        console.log(`${data.task} [${data.tag}]`)
     }
 }
 

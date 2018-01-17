@@ -21,6 +21,8 @@ class Model {
             id: this._taskList[this._taskList.length-1].id+1 || 0,
             task: data,
             status: false,
+            created_at: new Date(),
+            tag: []
         }
         this._taskList.push(obj);
         fs.writeFileSync("./tampungan.json", JSON.stringify(this._taskList, null, 2), "utf8")
@@ -51,6 +53,7 @@ class Model {
     completeTask(argv){
         for(var i=0; i<this._taskList.length; i++){
             if(this._taskList[i].id == argv){
+                this._taskList[i].completed_at = new Date();
                 this._taskList[i].status = true;
                 fs.writeFileSync("./tampungan.json", JSON.stringify(this._taskList, null, 2), "utf8")
                 return this._taskList[i];
@@ -67,11 +70,70 @@ class Model {
             }
         }
     }
+
+    sortCreatedAt(argv){
+        if(argv === "asc"){
+            this._taskList.sort(function(a,b) {
+                return new Date(a.created_at) - new Date(b.created_at);
+            });
+            fs.writeFileSync("./tampungan.json", JSON.stringify(this._taskList, null, 2), "utf8")
+            return this._taskList;
+        }else if(argv === "desc"){
+            this._taskList.sort(function(a,b) {
+                return new Date(b.created_at) - new Date(a.created_at);
+            });
+            fs.writeFileSync("./tampungan.json", JSON.stringify(this._taskList, null, 2), "utf8")
+            return this._taskList
+        }
+    }
+
+    sortComplete(argv){
+        if(argv === "asc"){
+            this._taskList.sort(function(a,b) {
+                return new Date(a.completed_at) - new Date(b.completed_at);
+            });
+            fs.writeFileSync("./tampungan.json", JSON.stringify(this._taskList, null, 2), "utf8")
+            return this._taskList;
+        }else if(argv === "desc"){
+            this._taskList.sort(function(a,b) {
+                return new Date(b.completed_at) - new Date(a.completed_at);
+            });
+            fs.writeFileSync("./tampungan.json", JSON.stringify(this._taskList, null, 2), "utf8")
+            return this._taskList
+        }
+    }
+
+    tag(argv){
+        // console.log(argv);
+        for(var i=0; i<this._taskList.length; i++){
+            // console.log(this._taskList[i].tag)
+            if(this._taskList[i].id == argv[0]){
+                for(var j=1; j<argv.length; j++){
+                    this._taskList[i].tag.push(argv[j])
+                }
+                fs.writeFileSync("./tampungan.json", JSON.stringify(this._taskList, null, 2), "utf8")
+                return this._taskList[i]
+            }
+        }
+    }
+
+    findTag(argv){
+        // console.log(argv)
+        for(var i=0; i<this._taskList.length; i++){
+            if(this._taskList[i].tag.indexOf("play") !== 0){
+                return this._taskList[i];
+            }
+        }
+    }
+
+    removeTag(argv){}
 }
 
 // var model = new Model()
 // model.list(); 
-// console.log(model.completeTask(1))
+// console.log(model.tag([ '2', 'hobby', 'per', 'Main', 'Cs']))
+// model.tag([ '3', 'ngotak-ngatik'])
+// console.log(model.tag([ '3', 'ngaji']))
 // model.addTask("Shutdown my computer")
 // console.log(model.findByIdTask(2))
  

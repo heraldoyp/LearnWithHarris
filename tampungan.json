@@ -1,12 +1,33 @@
 [
   {
     "id": 1,
-    "task": "Bikin aplikasi",
-    "status": false
+    "task": "Bikin Aplikasi",
+    "status": true,
+    "created_at": "2018-01-17T08:02:34.935Z",
+    "completed_at": "2018-01-17T09:29:43.156Z",
+    "tag": [
+      "main",
+      "bercanda",
+      "ketawa"
+    ]
   },
   {
     "id": 2,
+    "task": "Shut down my computer",
+    "status": true,
+    "created_at": "2018-01-17T08:12:34.772Z",
+    "completed_at": "2018-01-17T09:29:37.059Z",
+    "tag": []
+  },
+  {
+    "id": 3,
     "task": "Main dota",
-    "status": false
+    "status": true,
+    "created_at": "2018-01-17T09:23:37.678Z",
+    "completed_at": "2018-01-17T09:23:59.223Z",
+    "tag": [
+      "cry",
+      "die"
+    ]
   }
 ]

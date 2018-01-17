@@ -32,6 +32,23 @@ class Controller{
             var modelUncomplete = new Model()
             modelUncomplete.list()
             View.completeList(modelUncomplete.uncompleteTask(argv[1]))
+        }else if(argv[0] === "list:created"){
+            var modelCreatedAt = new Model()
+            modelCreatedAt.list()
+            modelCreatedAt.sortCreatedAt(argv[1]);
+        }else if(argv[0] === "list:completed"){
+            var modelSortComplete = new Model()
+            modelSortComplete.list()
+            modelSortComplete.sortComplete(argv[1]);
+        }else if(argv[0] === "tag"){
+            var modelTag = new Model()
+            modelTag.list()
+            View.tag(modelTag.tag(argv.slice(1)));
+        }else if(argv[0].split("filter:").length >= 1){
+            // console.log(argv[0].split("filter:"))
+            var modelFindTag = new Model()
+            modelFindTag.list()
+            View.findTag(modelFindTag.findTag(argv[0].split("filter:")[1]))
         }
     }
 }
