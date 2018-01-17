@@ -18,11 +18,28 @@ class View{
 
     static list(data){
         for(var i=0; i<data.length; i++){
-            console.log(`${i+1}. ${data[i].task}`)
+            if(data[i].status === false){
+                console.log(`${data[i].id}. [ ] ${data[i].task}`)
+            }else if(data[i].status === true){
+                console.log(`${data[i].id}. [X] ${data[i].task}`)
+            }
+            
         }
     }
 
     static addList(data){
+        console.log(`Added "${data.task}" to your TODO list`);
+    }
+
+    static findList(data){
+        console.log(data);
+    }
+
+    static deleteList(data){
+        console.log(`Delete "${data.task}" to your TODO list`);
+    }
+
+    static completeList(data){
         console.log(data);
     }
 }

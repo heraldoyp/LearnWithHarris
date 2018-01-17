@@ -1,14 +1,12 @@
 [
   {
     "id": 1,
-    "task": "Bikin aplikasi"
+    "task": "Bikin aplikasi",
+    "status": false
   },
   {
     "id": 2,
-    "task": "Main Node.js"
-  },
-  {
-    "id": 3,
-    "task": "Shut down my computer"
+    "task": "Main dota",
+    "status": false
   }
 ]
