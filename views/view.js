@@ -18,8 +18,12 @@ class View{
 
     static list(data){
         for(var i=0; i<data.length; i++){
-            console.log(`${i+1}. ${data[i]}`)
+            console.log(`${i+1}. ${data[i].task}`)
         }
+    }
+
+    static addList(data){
+        console.log(data);
     }
 }
 

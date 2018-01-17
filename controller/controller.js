@@ -7,10 +7,15 @@ class Controller{
     static processor(argv){
         if(!argv[0]){
             View.nothing()
-        }else if(argv[0] === "help"){
+        }else if(argv[0] === "help"){s
             View.help()
         }else if(argv[0] === "list"){
-            View.list(Model.list())
+            var modelList = new Model();
+            View.list(modelList.list())
+        }else if(argv[0] === "add"){
+            var modelAdd = new Model()
+            modelAdd.list()
+            View.addList(modelAdd.addTask(argv[1]))
         }
     }
 }
