@@ -7,7 +7,7 @@ class Controller{
     static processor(argv){
         if(!argv[0]){
             View.nothing()
-        }else if(argv[0] === "help"){s
+        }else if(argv[0] === "help"){
             View.help()
         }else if(argv[0] === "list"){
             var modelList = new Model();
@@ -49,6 +49,11 @@ class Controller{
             var modelFindTag = new Model()
             modelFindTag.list()
             View.findTag(modelFindTag.findTag(argv[0].split("filter:")[1]))
+        }else if(argv[0] === "main"){
+            var modelRemoveTag = new Model()
+            modelRemoveTag.list()
+            modelRemoveTag.removeTag(argv)
+            // console.log(argv[0]);
         }
     }
 }

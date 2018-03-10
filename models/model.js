@@ -126,12 +126,26 @@ class Model {
         }
     }
 
-    removeTag(argv){}
+    removeTag(argv){
+        // for(var i=0; i<this._taskList.length; i++){
+        //     if(this._taskList[i].id == argv[0]){
+        //         var removeTag = this._taskList[i].tag.map((element, index) => {
+        //             if(element === argv[1]){
+        //                 // return `${index} isinya ${element}`
+        //                 this._taskList[i].tag.splice(index, 1)
+        //                 fs.writeFileSync("./tampungan.json", JSON.stringify(this._taskList, null, 2), "utf8")
+        //                 return this._taskList[i];
+        //             }
+        //         })
+        //     }
+        // }  
+        return argv; 
+    }
 }
 
 // var model = new Model()
 // model.list(); 
-// console.log(model.tag([ '2', 'hobby', 'per', 'Main', 'Cs']))
+// console.log(model.removeTag([ '1', 'bercanda']))
 // model.tag([ '3', 'ngotak-ngatik'])
 // console.log(model.tag([ '3', 'ngaji']))
 // model.addTask("Shutdown my computer")
